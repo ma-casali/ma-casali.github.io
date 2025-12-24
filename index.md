@@ -3,16 +3,16 @@ layout: home
 title: Welcome to My Portfolio
 ---
 
-## Featured Projects
+# Featured Projects
 
-### Mobile App Project
-An iOS app built to convert a user's video capture to audio output in real-time.
-[Link to Case Study]
+{% assign featured_projects = site.projects | where: "featured", "true" %}
 
-### Python Backend Tool
-A parabolic wave equation propagation model built in python. 
-[Link to Case Study]
+{% for project in featured_projects %}
 
-### Hardware Engineering
-A transducer capable of measurement of particle velocity and acceleration simultaneously.
-[Link to Case Study]
+## {{ project.title }}
+
+{{ project.description }}
+
+[Read the Case Study]({{ project.url | relative_url }})
+
+{% endfor %}

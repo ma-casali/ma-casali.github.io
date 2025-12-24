@@ -6,3 +6,13 @@ description: >-
 theme: minima # Or any theme you've chosen
 baseurl: ""
 url: "https://ma-casali.github.io"
+
+
+collections:
+  projects:
+    output: true
+    permalink: /:collection/:path/
+
+markdown: kramdown
+kramdown:
+  math_engine: mathjax
