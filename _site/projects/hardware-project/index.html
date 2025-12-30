@@ -3,9 +3,9 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Willis-coupled Acoustic Sensor | Matthew Casali Project Portfolio</title>
+<title>Acoustic Metamaterial-Enhanced Transducer | Matthew Casali Project Portfolio</title>
 <meta name="generator" content="Jekyll v3.9.5" />
-<meta property="og:title" content="Willis-coupled Acoustic Sensor" />
+<meta property="og:title" content="Acoustic Metamaterial-Enhanced Transducer" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Design and validation of a novel acoustic metamaterial enabled transducer for heightened beamforming performance." />
 <meta property="og:description" content="Design and validation of a novel acoustic metamaterial enabled transducer for heightened beamforming performance." />
@@ -15,9 +15,9 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2023-08-01T00:00:00-07:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Willis-coupled Acoustic Sensor" />
+<meta property="twitter:title" content="Acoustic Metamaterial-Enhanced Transducer" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-08-01T00:00:00-07:00","datePublished":"2023-08-01T00:00:00-07:00","description":"Design and validation of a novel acoustic metamaterial enabled transducer for heightened beamforming performance.","headline":"Willis-coupled Acoustic Sensor","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/projects/hardware-project/"},"url":"http://localhost:4000/projects/hardware-project/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-08-01T00:00:00-07:00","datePublished":"2023-08-01T00:00:00-07:00","description":"Design and validation of a novel acoustic metamaterial enabled transducer for heightened beamforming performance.","headline":"Acoustic Metamaterial-Enhanced Transducer","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/projects/hardware-project/"},"url":"http://localhost:4000/projects/hardware-project/"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Matthew Casali Project Portfolio" /><script type="text/javascript" async
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
@@ -37,7 +37,7 @@
           </span>
         </label>
 
-        <div class="trigger"><a class="page-link" href="/">Welcome to My Portfolio</a></div>
+        <div class="trigger"><a class="page-link" href="/">Welcome!</a></div>
       </nav></div>
 </header>
 <main class="page-content" aria-label="Content">
@@ -45,7 +45,7 @@
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Willis-coupled Acoustic Sensor</h1>
+    <h1 class="post-title p-name" itemprop="name headline">Acoustic Metamaterial-Enhanced Transducer</h1>
     <p class="post-meta">
       <time class="dt-published" datetime="2023-08-01T00:00:00-07:00" itemprop="datePublished">Aug 1, 2023
       </time></p>
@@ -54,17 +54,33 @@
   <div class="post-content e-content" itemprop="articleBody">
     <h1 id="the-idea">The Idea</h1>
 
-<p>In order to ensure asymmetric scattering measurement capabilities in an water-filled impedance tube, I worked on the design, construction, and validation of a Willis coupling enabled transducer.</p>
+<p>Most directional acoustic transducers gain their directional capability from summing weighted inputs from elements of a large transducer array. Depending on the frequency of interest, these arrays can be massive (up to miles in length!). In order to combat this, I worked on an acoustic metamaterial-enhanced transducer that, for a single element, can sense both acoustic pressure and a direction, effectively reducing  directional acoustic transducers to the size of a single element!</p>
 
-<p><strong>What is Willis Coupling?</strong></p>
+<p>If you are curious about my work and want to read more than what is provided here, please feel free to peruse my Master’s Thesis located <a href="https://repositories.lib.utexas.edu/items/034c2639-e6a3-4389-9ab3-e0f2ae32e3f1">here</a>. It has a lot of background on the math behind the theory, the experiment set-up, and the quirks of the entire process!</p>
+
+<h1 id="the-goal">The Goal</h1>
+
+<p>In order to validate this sensor, my advisor and I utilized a water-filled impedance tube (the only experimentally validated one of its kind to our knowledge!) to infer its material properties and measure its responsiveness to acoustic waves. By measuring the values for the reflection and transmission coefficients for this sensor, we would be able to infer a value for the <em>Willis coupling</em> and <em>electromomentum coupling</em> values – values which effectively describe how well the sensor could determine direction of the incoming wave.</p>
 
 <h1 id="the-experiment">The Experiment</h1>
 
-<p><em>This is where I’ll talk about the impedance tube experiment and show some cool pictures.</em></p>
+<p>Below is a picture of the impedance tube that I used to make measurements. A sample section was included between two sections of water. A source would then activate to send acoustic energy through the water, through the source, and towards the termination. Two hydrophones on either side of the impedance tube measured the signal of the acoustic pressure as a function of time.</p>
+
+<p><img src="/assets/images/WaterImpedanceTube.png" alt="Water-filled Impedance Tube" /></p>
+
+<p>This impedance tube was a monster to handle. It required precise tuning and allowance for things like an imperfect termination, coupling of the energy between the water and the steel walls, and bubbles within the tube that would completely disrupt the measurement.</p>
+
+<p>Additionally, one of the test samples we used is shown below. This sample was a bi-layer stack of PZT-4 (a common piezoelectric material) and PMMA (plexiglass). This sample was chosen because in my modeling optimization, it was determined to exhibit the highest value of Willis coupling.</p>
+
+<p><img src="/assets/images/BiLayerStack.png" alt="Bi-layer Stack" /></p>
 
 <h1 id="the-results">The Results</h1>
 
-<p><em>This is where I’ll talk about the results we got</em></p>
+<p>Ultimately, we were able to measure the strength of the <em>Willis coupling</em> within one of the sample sensors. Using reflection and transmission coefficients for the sample facing forwards and backwards, we retrieved the following material properties as a function of frequency. Comparisons our made to a finite element model of the impedance tube/sample system.</p>
+
+<p><img src="/assets/images/MaterialProperties.png" alt="Material Properties" /></p>
+
+<p>This work set the stage for future tests, providing schematics for electromomentum-coupled samples, detailing the highly-sensitive nature of the test apparatus, and explaining both analytical and finite element models for the test system and sample dynamics.</p>
 
   </div><a class="u-url" href="/projects/hardware-project/" hidden></a>
 </article>

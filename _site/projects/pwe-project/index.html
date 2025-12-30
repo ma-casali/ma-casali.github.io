@@ -37,7 +37,7 @@
           </span>
         </label>
 
-        <div class="trigger"><a class="page-link" href="/">Welcome to My Portfolio</a></div>
+        <div class="trigger"><a class="page-link" href="/">Welcome!</a></div>
       </nav></div>
 </header>
 <main class="page-content" aria-label="Content">
@@ -53,6 +53,10 @@
 
   <div class="post-content e-content" itemprop="articleBody">
     
+<h1 id="why-focus-on-solving-the-parabolic-wave-equation-pwe">Why focus on solving the parabolic wave equation (PWE)?</h1>
+
+<p>Noise control and communications rely heavily on knowing exactly how sound will travel over large distances. While there are plenty of analytical models for sound propagation over short distances and within enclosures, they can not extend easily to large-expanding spaces. This is where the parabolic wave equation comes in! An efficient solver of this equation, can model sound propagation over tens of kilometers under a minute. I built my version of this solver to provide acousticians with a free, fast, and reliable software product to aid them in noise analysis.</p>
+
 <h1 id="what-is-the-parabolic-wave-equation">What is the Parabolic Wave Equation?</h1>
 
 <p>The parabolic wave equation is derived from the Helmholtz Wave Equation in polar coordinates (with no azimuthal dependence),</p>
@@ -72,11 +76,31 @@ k_0^2n^2p = 0\]
 
 <p>The IFD method takes the definition of the derivative and relates a prior step in \(r\) to the next step via the derivative defined within the parabolic wave approximation.</p>
 
-<p>The user provides the algorithm with a starting field \(\psi(r = 0, z)\) that then steps the field forward along the range by \(dr \) to solve for the whole field.</p>
+<p>The user provides the algorithm with a starting field \(\psi(r = 0, z)\) that then steps the field forward along the range by \(k \) to solve for the whole field.</p>
 
 <h1 id="my-implementation-of-a-pwe-solver">My implementation of a PWE solver.</h1>
 
 <p>In addition to implementing the parabolic wave equation as an efficient solution method for acoustic propagation by equipping the solver with GPU capability, I also made sure to implement the ability for the solver to work with arbitrary terrains.</p>
+
+<p>The following is the core of the algorithm:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">nn</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">r_mesh</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+
+    <span class="c1"># From Eq. 6.189 (Jensen, Computational Ocean Acoustics)
+</span>    <span class="n">A</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">build_system_matrices</span><span class="p">(</span><span class="n">nn</span><span class="p">,</span> <span class="n">k_steps</span><span class="p">[</span><span class="n">nn</span><span class="p">],</span> <span class="n">k_0_sq_h_sq</span><span class="p">,</span> <span class="n">sqrt_approx_vec</span><span class="p">)</span>
+    <span class="bp">self</span><span class="p">.</span><span class="n">u</span><span class="p">[</span><span class="n">nn</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">solve_tridiagonal_matrix_eq</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">u</span><span class="p">[</span><span class="n">nn</span><span class="p">,</span> <span class="p">:])</span>
+
+    <span class="c1"># set boundaries to zero pressure
+</span>    <span class="bp">self</span><span class="p">.</span><span class="n">u</span><span class="p">[</span><span class="n">nn</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># pressure release
+</span>    <span class="bp">self</span><span class="p">.</span><span class="n">u</span><span class="p">[</span><span class="n">nn</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># absorbing layer
+</span>    
+    <span class="k">if</span> <span class="n">progress_callback</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">progress_callback</span><span class="p">(</span><span class="n">nn</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">r_mesh</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>This takes in things like the range step \(k \), constants, and the square-root approximations to build the two tri-diagonal matrices from Eq. 6.189 from Jensen&#8217;s Computational Ocean Acoustics. It then solves that matrix equation, for the &#8220;nn+1&#8221; step of u (the field variable), and continues on iterating.</p>
+
+<p>Some examples of the solutions to the PWE for different environments are shown below.</p>
 
   </div><a class="u-url" href="/projects/pwe-project/" hidden></a>
 </article>
