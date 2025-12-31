@@ -1,11 +1,11 @@
 ---
 layout: home
-title: Welcome!
+title: Home Page
 ---
 
-# Matthew Casali
+# Welcome!
 
-Acoustic Engineer specializing in real-time DSP, audio machine learning, and hardware development.
+Hello and thank you for visiting my site! I am an acoustic engineer and my main focuses are on real-time DSP, hardware development, and machine learning. Outside of these projects I love to play music and have released a couple of EPs on Spotify and other streaming platforms. Please take some time to look at some of my projects and if you ever want to talk about my work, please feel free to reach out via my contact information below!
 
 # Featured Projects
 ---
@@ -27,9 +27,3 @@ Acoustic Engineer specializing in real-time DSP, audio machine learning, and har
 # My Resume
 
 [Download my Resume (PDF)](/assets/documents/MatthewCasali_Resume.pdf)
-
-# Contact Info: 
-
-email: [casali.ma98@gmail.com](mailto:casali.ma98@gmail.com)
-
-phone: (650)-799-5462

@@ -9,7 +9,7 @@ featured: true
 
 # The Idea
 
-Most directional acoustic transducers gain their directional capability from summing weighted inputs from elements of a large transducer array. Depending on the frequency of interest, these arrays can be massive (up to miles in length!). In order to combat this, I worked on an acoustic metamaterial-enhanced transducer that, for a single element, can sense both acoustic pressure and a direction, effectively reducing  directional acoustic transducers to the size of a single element!
+Most directional acoustic transducers gain their directional capability from summing weighted inputs from elements of a large transducer array. Depending on the frequency of interest, these arrays can be massive (up to miles in length!). In order to combat this, I worked on an acoustic metamaterial-enhanced transducer that can sense both acoustic pressure and a direction, effectively reducing  directional acoustic transducers to the size of a single element!
 
 If you are curious about my work and want to read more than what is provided here, please feel free to peruse my Master's Thesis located [here](https://repositories.lib.utexas.edu/items/034c2639-e6a3-4389-9ab3-e0f2ae32e3f1). It has a lot of background on the math behind the theory, the experiment set-up, and the quirks of the entire process!
 

@@ -1,12 +1,10 @@
-title: Matthew Casali Project Portfolio
-email: casali.ma98@example.com
-description: >- 
-  Acoustic engineer portfolio featuring mobile apps, 
-  Python automation, and hardware engineering.
+title: Matthew Casali 
+email: casali.ma98@gmail.com
+phone: "+1 (650)-799-5462"
+description: I am an acoustic engineer that focuses on hardware development, real-time DSP, and machine learning among other random projects!
 theme: minima # Or any theme you've chosen
 baseurl: ""
 url: "https://ma-casali.github.io"
-
 
 collections:
   projects:
@@ -16,3 +14,7 @@ collections:
 markdown: kramdown
 kramdown:
   math_engine: mathjax
+
+# Social links
+github_username: ma-casali
+linkedin_username: matthew-casali-761158133

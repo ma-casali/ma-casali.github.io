@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Parabolic Wave Equation Solver | Matthew Casali Project Portfolio</title>
+<title>Parabolic Wave Equation Solver | Matthew Casali</title>
 <meta name="generator" content="Jekyll v3.9.5" />
 <meta property="og:title" content="Parabolic Wave Equation Solver" />
 <meta property="og:locale" content="en_US" />
@@ -11,7 +11,7 @@
 <meta property="og:description" content="Computational model for acoustic radiation using an IFD class of solution to the parabolic wave equation." />
 <link rel="canonical" href="http://localhost:4000/projects/pwe-project/" />
 <meta property="og:url" content="http://localhost:4000/projects/pwe-project/" />
-<meta property="og:site_name" content="Matthew Casali Project Portfolio" />
+<meta property="og:site_name" content="Matthew Casali" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2025-10-01T00:00:00-07:00" />
 <meta name="twitter:card" content="summary" />
@@ -19,7 +19,7 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-10-01T00:00:00-07:00","datePublished":"2025-10-01T00:00:00-07:00","description":"Computational model for acoustic radiation using an IFD class of solution to the parabolic wave equation.","headline":"Parabolic Wave Equation Solver","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/projects/pwe-project/"},"url":"http://localhost:4000/projects/pwe-project/"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Matthew Casali Project Portfolio" /><script type="text/javascript" async
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Matthew Casali" /><script type="text/javascript" async
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
   </script>
 </head>
@@ -27,7 +27,7 @@
 
 <body><header class="site-header" role="banner">
 
-  <div class="wrapper"><a class="site-title" rel="author" href="/">Matthew Casali Project Portfolio</a><nav class="site-nav">
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Matthew Casali</a><nav class="site-nav">
         <input type="checkbox" id="nav-trigger" class="nav-trigger" />
         <label for="nav-trigger">
           <span class="menu-icon">
@@ -37,7 +37,7 @@
           </span>
         </label>
 
-        <div class="trigger"><a class="page-link" href="/">Welcome!</a></div>
+        <div class="trigger"><a class="page-link" href="/">Home Page</a></div>
       </nav></div>
 </header>
 <main class="page-content" aria-label="Content">
@@ -53,6 +53,8 @@
 
   <div class="post-content e-content" itemprop="articleBody">
     
+<p><a href="https://github.com/ma-casali/acoustic-models">See the current project files here!</a></p>
+
 <h1 id="why-focus-on-solving-the-parabolic-wave-equation-pwe">Why focus on solving the parabolic wave equation (PWE)?</h1>
 
 <p>Noise control and communications rely heavily on knowing exactly how sound will travel over large distances. While there are plenty of analytical models for sound propagation over short distances and within enclosures, they can not extend easily to large-expanding spaces. This is where the parabolic wave equation comes in! An efficient solver of this equation, can model sound propagation over tens of kilometers under a minute. I built my version of this solver to provide acousticians with a free, fast, and reliable software product to aid them in noise analysis.</p>
@@ -100,7 +102,18 @@ k_0^2n^2p = 0\]
 
 <p>This takes in things like the range step \(k \), constants, and the square-root approximations to build the two tri-diagonal matrices from Eq. 6.189 from Jensen&#8217;s Computational Ocean Acoustics. It then solves that matrix equation, for the &#8220;nn+1&#8221; step of u (the field variable), and continues on iterating.</p>
 
-<p>Some examples of the solutions to the PWE for different environments are shown below.</p>
+<p>Some examples of the solutions to the PWE for different environments are shown below:</p>
+
+<div style="text-align: center;">
+    <img src="/assets/images/Air_PWESolve.png" alt="PWE Solve in Air" style="width: 100%;" />
+    <p style="text-align: center; font-size: 0.8em;"><em>A solution in air where f = 10 Hz</em></p>
+</div>
+
+<div style="text-align: center;">
+        <img src="/assets/images/Water_PWESolve.png" alt="Solve in Water" style="width: 100%;" />
+    <p style="text-align: center; font-size: 0.8em;"><em>A solution in water where f = 25 Hz</em></p>
+</div>
+
 
   </div><a class="u-url" href="/projects/pwe-project/" hidden></a>
 </article>
@@ -111,19 +124,19 @@ k_0^2n^2p = 0\]
 
   <div class="wrapper">
 
-    <h2 class="footer-heading">Matthew Casali Project Portfolio</h2>
+    <h2 class="footer-heading">Matthew Casali</h2>
 
     <div class="footer-col-wrapper">
       <div class="footer-col footer-col-1">
         <ul class="contact-list">
-          <li class="p-name">Matthew Casali Project Portfolio</li><li><a class="u-email" href="mailto:casali.ma98@example.com">casali.ma98@example.com</a></li></ul>
+          <li class="p-name">Matthew Casali</li><li><a class="u-email" href="mailto:casali.ma98@gmail.com">casali.ma98@gmail.com</a></li></ul>
       </div>
 
-      <div class="footer-col footer-col-2"><ul class="social-media-list"></ul>
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/ma-casali"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">ma-casali</span></a></li><li><a href="https://www.linkedin.com/in/matthew-casali-761158133"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#linkedin"></use></svg> <span class="username">matthew-casali-761158133</span></a></li></ul>
 </div>
 
       <div class="footer-col footer-col-3">
-        <p>Acoustic engineer portfolio featuring mobile apps,  Python automation, and hardware engineering.</p>
+        <p>I am an acoustic engineer that focuses on hardware development, real-time DSP, and machine learning among other random projects!</p>
       </div>
     </div>
 

@@ -8,6 +8,8 @@ featured: true
 ---
 {% include mathjax.html %}
 
+[See the current project files here!](https://github.com/ma-casali/acoustic-models)
+
 # Why focus on solving the parabolic wave equation (PWE)?
 
 Noise control and communications rely heavily on knowing exactly how sound will travel over large distances. While there are plenty of analytical models for sound propagation over short distances and within enclosures, they can not extend easily to large-expanding spaces. This is where the parabolic wave equation comes in! An efficient solver of this equation, can model sound propagation over tens of kilometers under a minute. I built my version of this solver to provide acousticians with a free, fast, and reliable software product to aid them in noise analysis.
@@ -56,4 +58,15 @@ for nn in range(len(self.r_mesh) - 1):
 
 This takes in things like the range step \\(k \\), constants, and the square-root approximations to build the two tri-diagonal matrices from Eq. 6.189 from Jensen's Computational Ocean Acoustics. It then solves that matrix equation, for the "nn+1" step of u (the field variable), and continues on iterating.
 
-Some examples of the solutions to the PWE for different environments are shown below. 
+Some examples of the solutions to the PWE for different environments are shown below:
+
+<div style="text-align: center;">
+    <img src="/assets/images/Air_PWESolve.png" alt="PWE Solve in Air" style="width: 100%;">
+    <p style="text-align: center; font-size: 0.8em;"><em>A solution in air where f = 10 Hz</em></p>
+</div>
+
+<div style="text-align: center;">
+        <img src="/assets/images/Water_PWESolve.png" alt="Solve in Water" style="width: 100%;">
+    <p style="text-align: center; font-size: 0.8em;"><em>A solution in water where f = 25 Hz</em></p>
+</div>
+
