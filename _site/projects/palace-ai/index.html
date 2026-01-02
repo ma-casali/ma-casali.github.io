@@ -22,6 +22,9 @@
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Matthew Casali" /><script type="text/javascript" async
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
   </script>
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  
 </head>
 
 
@@ -37,7 +40,7 @@
           </span>
         </label>
 
-        <div class="trigger"><a class="page-link" href="/">Home Page</a></div>
+        <div class="trigger"><a class="page-link" href="/">Home</a><a class="page-link" href="/my-a-projects.html">Projects</a><a class="page-link" href="/my-b-music.html">Music</a></div>
       </nav></div>
 </header>
 <main class="page-content" aria-label="Content">
@@ -52,7 +55,9 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    
+    <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
 <h1 id="the-goal">The Goal</h1>
 
 <p>I was tired at always being the last one out when playing Palace. After being introduced to the game by my girlfriend, I think I may have won 1 out of 50 games with her. So I thought, what a great opportunity to put my experience with writing deep learning frameworks to the test!</p>
@@ -63,8 +68,8 @@
 
 <ol>
   <li><strong>Action Index (0 - 12), (13 - 25), (26 - 38), (39 - 51).</strong> Each of these sets of action indices corresponds to playing either 1, 2, 3, or 4 of a card of rank 0 - 12 (2 - Ace).</li>
-  <li><strong>Action Index (52-64).</strong> These actions correspond to playing a card of rank 0 - 12 from the player&#8217;s face up pile.</li>
-  <li><strong>Action Index (65-77).</strong> These actions correspond to playing a card of rank 0 - 12 from the player&#8217;s face down pile.</li>
+  <li><strong>Action Index (52-64).</strong> These actions correspond to playing a card of rank 0 - 12 from the player’s face up pile.</li>
+  <li><strong>Action Index (65-77).</strong> These actions correspond to playing a card of rank 0 - 12 from the player’s face down pile.</li>
   <li><strong>Action Index 78.</strong> This action corresponds to picking up the pile.</li>
 </ol>
 
@@ -124,7 +129,7 @@
 
 <ol>
   <li><strong>Last Actions (0 - 12), (13 - 25), (26 - 38).</strong> Each set of indices corresponds to the last three actions taken to the discard pile (where (0 - 12) is the most recent action.) Each rank can be populated by a number 1 through 4 representing the number of cards of that type that were put down. Including this information in the input vector allows the neural net to access some memory of how the game has been played up until the current turn.</li>
-  <li><strong>Current Hand (39-51).</strong> Each index corresponds to the rank available in the player&#8217;s hand with a number 0 - 4 representing how many of that rank they have in their hand.</li>
+  <li><strong>Current Hand (39-51).</strong> Each index corresponds to the rank available in the player’s hand with a number 0 - 4 representing how many of that rank they have in their hand.</li>
   <li><strong>Valid Mask (52-131).</strong> Each index corresponds to the mask as described above.</li>
 </ol>
 
@@ -134,9 +139,9 @@
 
 <h1 id="the-training-scheme">The training scheme.</h1>
 
-<p>Because Palace is a game influence by random chance as well as strategy, it is important to use batching of games played so that the neural net isn&#8217;t influenced by an extremely lucky or extremely unlucky game. The batch is set to a relatively small number here, either 8 or 16 games. Only after a batch of games is played, the total loss and its backpropagation will be calculated for each neural net.</p>
+<p>Because Palace is a game influence by random chance as well as strategy, it is important to use batching of games played so that the neural net isn’t influenced by an extremely lucky or extremely unlucky game. The batch is set to a relatively small number here, either 8 or 16 games. Only after a batch of games is played, the total loss and its backpropagation will be calculated for each neural net.</p>
 
-<p>A generation will consist of 10 times the number of games in a batch. After a generation, the neural nets engage in a &#8220;tournament&#8221; to decide who the best player is. During this tournament losses (where a player is the last one left with cards) are recorded over games in the amount of 20 times the number of players. In order to make the training more stable, I made it hard to overthrow the best player (the king) and easy to remain the king. This means that if the king loses less than or equal to it&#8217;s equal share of games (20) it remains the king. Additionally, even if it loses more than 20, if no other player loses less than 15 games, it still keeps its title.</p>
+<p>A generation will consist of 10 times the number of games in a batch. After a generation, the neural nets engage in a “tournament” to decide who the best player is. During this tournament losses (where a player is the last one left with cards) are recorded over games in the amount of 20 times the number of players. In order to make the training more stable, I made it hard to overthrow the best player (the king) and easy to remain the king. This means that if the king loses less than or equal to it’s equal share of games (20) it remains the king. Additionally, even if it loses more than 20, if no other player loses less than 15 games, it still keeps its title.</p>
 
 <p>After the tournament, the king neural net has its weights saved so that for the next generation it remains static and plays with the other learning nets. This means that each learning net is always playing against the current best neural net and learning a strategy to beat them.</p>
 
@@ -152,9 +157,9 @@
 
 <h1 id="can-you-beat-these-players">Can you beat these players?</h1>
 
-<p>It&#8217;s easy to play the game! Download the python files <a href="https://github.com/ma-casali/palace-ai">here</a> and you can run a game from your terminal using the pre-saved weights or you can retrain the AI yourself!</p>
+<p>It’s easy to play the game! Download the python files <a href="https://github.com/ma-casali/palace-ai">here</a> and you can run a game from your terminal using the pre-saved weights or you can retrain the AI yourself!</p>
 
-<p>Here&#8217;s an example of what the first turn in a game can look like:</p>
+<p>Here’s an example of what the first turn in a game can look like:</p>
 
 <p><img src="/assets/images/PalaceAIGameScreenshot.png" alt="Palace Game Screenshot" /></p>
 

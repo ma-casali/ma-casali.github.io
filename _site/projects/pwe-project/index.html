@@ -22,6 +22,9 @@
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Matthew Casali" /><script type="text/javascript" async
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
   </script>
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  
 </head>
 
 
@@ -37,7 +40,7 @@
           </span>
         </label>
 
-        <div class="trigger"><a class="page-link" href="/">Home Page</a></div>
+        <div class="trigger"><a class="page-link" href="/">Home</a><a class="page-link" href="/my-a-projects.html">Projects</a><a class="page-link" href="/my-b-music.html">Music</a></div>
       </nav></div>
 </header>
 <main class="page-content" aria-label="Content">
@@ -52,7 +55,9 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    
+    <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
 <p><a href="https://github.com/ma-casali/acoustic-models">See the current project files here!</a></p>
 
 <h1 id="why-focus-on-solving-the-parabolic-wave-equation-pwe">Why focus on solving the parabolic wave equation (PWE)?</h1>
@@ -100,7 +105,7 @@ k_0^2n^2p = 0\]
         <span class="n">progress_callback</span><span class="p">(</span><span class="n">nn</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">r_mesh</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>This takes in things like the range step \(k \), constants, and the square-root approximations to build the two tri-diagonal matrices from Eq. 6.189 from Jensen&#8217;s Computational Ocean Acoustics. It then solves that matrix equation, for the &#8220;nn+1&#8221; step of u (the field variable), and continues on iterating.</p>
+<p>This takes in things like the range step \(k \), constants, and the square-root approximations to build the two tri-diagonal matrices from Eq. 6.189 from Jensen’s Computational Ocean Acoustics. It then solves that matrix equation, for the “nn+1” step of u (the field variable), and continues on iterating.</p>
 
 <p>Some examples of the solutions to the PWE for different environments are shown below:</p>
 

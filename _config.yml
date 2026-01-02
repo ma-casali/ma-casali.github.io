@@ -1,4 +1,4 @@
-title: Matthew Casali 
+title: "Matthew Casali"
 email: casali.ma98@gmail.com
 phone: "+1 (650)-799-5462"
 description: I am an acoustic engineer that focuses on hardware development, real-time DSP, and machine learning among other random projects!
@@ -10,10 +10,17 @@ collections:
   projects:
     output: true
     permalink: /:collection/:path/
+  music:
+    output: true
+    permalink: /music/:path/
+  other-pages:
+    output: true
+    permalink: /other-pages/:path/
 
 markdown: kramdown
 kramdown:
   math_engine: mathjax
+  syntax-highlighter: rouge
 
 # Social links
 github_username: ma-casali

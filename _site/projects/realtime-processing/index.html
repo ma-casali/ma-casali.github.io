@@ -22,6 +22,9 @@
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Matthew Casali" /><script type="text/javascript" async
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
   </script>
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  
 </head>
 
 
@@ -37,7 +40,7 @@
           </span>
         </label>
 
-        <div class="trigger"><a class="page-link" href="/">Home Page</a></div>
+        <div class="trigger"><a class="page-link" href="/">Home</a><a class="page-link" href="/my-a-projects.html">Projects</a><a class="page-link" href="/my-b-music.html">Music</a></div>
       </nav></div>
 </header>
 <main class="page-content" aria-label="Content">
@@ -52,10 +55,12 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    
+    <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
 <p><a href="https://github.com/ma-casali/video-auralizer">See the current project files here!</a></p>
 
-<p>What does light sound like? Is there a way for us to hear what a video &#8220;sounds&#8221; like? I thought I would give it a try while taking some artistic liberties along the way. The result is an iOS app that processes video and produces audio in real-time. Below, I will go into some detail about how this process works and some examples of what the output looks like.</p>
+<p>What does light sound like? Is there a way for us to hear what a video “sounds” like? I thought I would give it a try while taking some artistic liberties along the way. The result is an iOS app that processes video and produces audio in real-time. Below, I will go into some detail about how this process works and some examples of what the output looks like.</p>
 
 <div style="text-align: center;">
     <img src="/assets/images/VideoAuralizerSample.jpg" alt="Sample Screenshot from the App" width="300" />
@@ -80,7 +85,7 @@
 
 <p>I implemented this process by structuring the project as follows. The user will have access to a GUI that depicts the camera, resulting spectrum, and resulting time-domain signal. They will have access to factors that affect the signal such as low- and high-pass filters, attack/release values for volume scaling, resonance Q factor scaling, etc. Updates to these values happen on a <strong>main thread</strong>.</p>
 
-<p>Simultaneously two other threads are running: 1) the <strong>processing thread</strong> and 2) the <strong>audio thread</strong>. The processing thread takes in video data, and runs it through the process described above using metal shaders to access the iPhone&#8217;s GPU. After turning video into audio, it pushes frames to an audio buffer. As this process is happening, the audio thread is emptying frames from this buffer to play to the user.</p>
+<p>Simultaneously two other threads are running: 1) the <strong>processing thread</strong> and 2) the <strong>audio thread</strong>. The processing thread takes in video data, and runs it through the process described above using metal shaders to access the iPhone’s GPU. After turning video into audio, it pushes frames to an audio buffer. As this process is happening, the audio thread is emptying frames from this buffer to play to the user.</p>
 
 <h1 id="demonstration">Demonstration</h1>
 
