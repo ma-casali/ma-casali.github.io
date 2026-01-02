@@ -10,7 +10,7 @@ featured: true
 
 # The Goal
 
-I was tired at always being the last one out when playing Palace. After being introduced to the game by my girlfriend, I think I may have won 1 out of 50 games with her. So I thought, what a great opportunity to put my experience with writing deep learning frameworks to the test! 
+Since I was taught how to play Palace by my girlfriend, I think my record when playing against her stands at 1 - 49. In order to fix my losing streak, I thought it would be the perfect opportunity to use my experience in developing deep learning models to create an AI Palace player so that I can practice against them and learn about the strategies that they develop. 
 
 # Implementation of the game rules
 
