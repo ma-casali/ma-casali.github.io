@@ -24,10 +24,10 @@ Below are some of the projects I have been working on. They generally all fall u
 
   {% for project in featured_projects %}
     <a href="{{ project.url | relative_url }}" class="custom-card">
+        <i class="fas fa-arrow-right card-corner-icon"></i>
       <div class="card-content">
         <h3>{{ project.title }}</h3>
         <p>{{ project.description | default: "Click to learn more about this project." }}</p>
-        <span class="read-more">Read more about this project →</span>
       </div>
     </a>
   {% endfor %}
@@ -40,10 +40,10 @@ Below are some of the projects I have been working on. They generally all fall u
   {% assign music_page = site.pages | where: "path", "my-b-music.md" | first %}
   {% if music_page %}
   <a href="{{ music_page.url | relative_url }}" class="custom-card">
+    <i class="fas fa-arrow-right card-corner-icon"></i>
       <div class="card-content">
           <h3>{{ music_page.title }}</h3>
           <p>{{ music_page.description | default: "Read about my acoustic and musical work." }}</p>
-          <span class="read-more">Read about my music →</span>
       </div>
   </a>
   {% endif %}
@@ -52,11 +52,11 @@ Below are some of the projects I have been working on. They generally all fall u
 # My Resume
 
 <div class="card-grid">
-  <a href="{{ '/assets/documents/MatthewCasali_Resume.pdf' | relative_url }}" class="custom-card">
-      <div class="card-content">
-          <h3>My Resume (pdf)</h3>
-          <p>A description of me, my work experience, and some of the notable work I have done during my career.</p>
-          <span class="read-more">Download my resume →</span>
-      </div>
+    <a href="{{ '/assets/documents/MatthewCasali_Resume.pdf' | relative_url }}" class="custom-card">
+        <i class="fas fa-arrow-right card-corner-icon"></i>
+        <div class="card-content">
+            <h3>My Resume (pdf)</h3>
+            <p>A description of me, my work experience, and some of the notable work I have done during my career.</p>
+        </div>
   </a>
 </div>
