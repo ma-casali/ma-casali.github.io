@@ -203,22 +203,40 @@ h2 {
 
 // 8. Footer & Code Styling
 .site-footer {
-  padding: 40px 0;
-  background-color: darken($background-color, 5%); /* Slightly darker than the body */
-  
+  padding: 60px 0; // Increased padding for a more professional feel
+  background-color: darken($background-color, 5%);
+  border-top: 1px solid rgba(184, 210, 220, 0.1);
+
   .wrapper {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap; /* Ensures it stacks on mobile */
-    gap: 30px;
+    flex-wrap: wrap;       /* This is the key for mobile stacking */
+    gap: 60px;             /* Space between Contact and Description */
+    justify-content: flex-start;
+  }
+
+  // Target the individual columns (Contact and About)
+  .footer-col {
+    flex: 1 1 300px;       /* Grow, Shrink, and set a 300px breakpoint */
+    margin-bottom: 20px;
+  }
+
+  .footer-heading {
+    color: $brand-color;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+  }
+
+  .footer-description {
+    color: $grey-color;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    max-width: 500px;      /* Prevents text from stretching too wide on desktop */
   }
 }
 
-/* Force footer columns to stay organized */
+// Ensure the default Minima column wrapper doesn't interfere with our flex layout
 .footer-col-wrapper {
-  display: flex;
-  justify-content: space-between;
+  display: contents; /* Allows the children to behave as direct flex-items of .wrapper */
 }
 
 figure.highlight, pre, code {
@@ -253,6 +271,18 @@ code {
   .side-image img {
     margin: 0 auto;
     display: block;
+  }
+}
+
+/* Mobile-Specific Tweaks */
+@media (max-width: 600px) {
+  .footer-layout-container {
+    flex-direction: column; /* Force a vertical stack */
+    gap: 30px;
+  }
+  
+  .footer-column {
+    flex: 1 1 100%;        /* Take up full width */
   }
 }
 

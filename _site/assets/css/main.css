@@ -250,11 +250,13 @@ h2 { padding-left: 15px; }
 
 .wide-layout .wrapper { max-width: 80% !important; }
 
-.site-footer { padding: 40px 0; background-color: #334951; /* Slightly darker than the body */ }
-.site-footer .wrapper { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; /* Ensures it stacks on mobile */ gap: 30px; }
+.site-footer { padding: 60px 0; background-color: #334951; border-top: 1px solid rgba(184, 210, 220, 0.1); }
+.site-footer .wrapper { display: flex; flex-wrap: wrap; /* This is the key for mobile stacking */ gap: 60px; /* Space between Contact and Description */ justify-content: flex-start; }
+.site-footer .footer-col { flex: 1 1 300px; /* Grow, Shrink, and set a 300px breakpoint */ margin-bottom: 20px; }
+.site-footer .footer-heading { color: #56CFFF; font-size: 1.2rem; margin-bottom: 15px; }
+.site-footer .footer-description { color: #B8D2DC; font-size: 0.95rem; line-height: 1.6; max-width: 500px; /* Prevents text from stretching too wide on desktop */ }
 
-/* Force footer columns to stay organized */
-.footer-col-wrapper { display: flex; justify-content: space-between; }
+.footer-col-wrapper { display: contents; /* Allows the children to behave as direct flex-items of .wrapper */ }
 
 figure.highlight, pre, code { background-color: #002b36 !important; color: #839496; border-radius: 8px; }
 
@@ -264,6 +266,9 @@ code { background-color: #073642; padding: 2px 5px; }
 @media (max-width: 768px) { .image-text-container { flex-direction: column; text-align: center; margin: 20px auto; }
   .project-grid-2x2 { grid-template-columns: 1fr; /* Stacks cards in the grid */ }
   .side-image img { margin: 0 auto; display: block; } }
+/* Mobile-Specific Tweaks */
+@media (max-width: 600px) { .footer-layout-container { flex-direction: column; /* Force a vertical stack */ gap: 30px; }
+  .footer-column { flex: 1 1 100%; /* Take up full width */ } }
 /* --- Stacked Layout for the Projects Page --- */
 /* The container that holds the stack */
 .project-stack { display: flex; flex-direction: column; /* Stacks them vertically */ gap: 30px; /* This creates the space between the cards */ align-items: center; /* This centers the cards horizontally */ margin: 40px auto; }
