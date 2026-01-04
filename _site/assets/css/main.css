@@ -2,7 +2,7 @@
 body, h1, h2, h3, h4, h5, h6, p, blockquote, pre, hr, dl, dd, ol, ul, figure { margin: 0; padding: 0; }
 
 /** Basic styling */
-body { font: 400 16px/1.5 Georgia, serif; color: #B8D2DC; background-color: #3D5761; -webkit-text-size-adjust: 100%; -webkit-font-feature-settings: "kern" 1; -moz-font-feature-settings: "kern" 1; -o-font-feature-settings: "kern" 1; font-feature-settings: "kern" 1; font-kerning: normal; display: flex; min-height: 100vh; flex-direction: column; }
+body { font: 400 18px/1.6 Georgia, serif; color: #B8D2DC; background-color: #3D5761; -webkit-text-size-adjust: 100%; -webkit-font-feature-settings: "kern" 1; -moz-font-feature-settings: "kern" 1; -o-font-feature-settings: "kern" 1; font-feature-settings: "kern" 1; font-kerning: normal; display: flex; min-height: 100vh; flex-direction: column; }
 
 /** Set `margin-bottom` to maintain vertical rhythm */
 h1, h2, h3, h4, h5, h6, p, blockquote, pre, ul, ol, dl, figure, .highlight { margin-bottom: 15px; }
@@ -16,7 +16,7 @@ img { max-width: 100%; vertical-align: middle; }
 /** Figures */
 figure > img { display: block; }
 
-figcaption { font-size: 14px; }
+figcaption { font-size: 15.75px; }
 
 /** Lists */
 ul, ol { margin-left: 30px; }
@@ -34,11 +34,11 @@ a:hover { color: #B8D2DC; text-decoration: underline; }
 .social-media-list a:hover .username { text-decoration: underline; }
 
 /** Blockquotes */
-blockquote { color: #B8D2DC; border-left: 4px solid white; padding-left: 15px; font-size: 18px; letter-spacing: -1px; font-style: italic; }
+blockquote { color: #B8D2DC; border-left: 4px solid white; padding-left: 15px; font-size: 20.25px; letter-spacing: -1px; font-style: italic; }
 blockquote > :last-child { margin-bottom: 0; }
 
 /** Code formatting */
-pre, code { font-size: 15px; border: 1px solid white; border-radius: 3px; background-color: #eef; }
+pre, code { font-size: 16.875px; border: 1px solid white; border-radius: 3px; background-color: #eef; }
 
 code { padding: 1px 5px; }
 
@@ -67,13 +67,13 @@ table td { border: 1px solid white; }
 /** Site header */
 .site-header { border-top: 5px solid #639cb2; border-bottom: 1px solid white; min-height: 55.95px; position: relative; }
 
-.site-title { font-size: 26px; font-weight: 300; line-height: 54px; letter-spacing: -1px; margin-bottom: 0; float: left; }
+.site-title { font-size: 29.25px; font-weight: 300; line-height: 64.8px; letter-spacing: -1px; margin-bottom: 0; float: left; }
 .site-title, .site-title:visited { color: #639cb2; }
 
-.site-nav { float: right; line-height: 54px; }
+.site-nav { float: right; line-height: 64.8px; }
 .site-nav .nav-trigger { display: none; }
 .site-nav .menu-icon { display: none; }
-.site-nav .page-link { color: #B8D2DC; line-height: 1.5; }
+.site-nav .page-link { color: #B8D2DC; line-height: 1.6; }
 .site-nav .page-link:not(:last-child) { margin-right: 20px; }
 @media screen and (max-width: 600px) { .site-nav { position: absolute; top: 9px; right: 15px; background-color: #3D5761; border: 1px solid white; border-radius: 5px; text-align: right; }
   .site-nav label[for="nav-trigger"] { display: block; float: right; width: 36px; height: 36px; z-index: 2; cursor: pointer; }
@@ -87,11 +87,11 @@ table td { border: 1px solid white; }
 /** Site footer */
 .site-footer { border-top: 1px solid white; padding: 30px 0; }
 
-.footer-heading { font-size: 18px; margin-bottom: 15px; }
+.footer-heading { font-size: 20.25px; margin-bottom: 15px; }
 
 .contact-list, .social-media-list { list-style: none; margin-left: 0; }
 
-.footer-col-wrapper { font-size: 15px; color: #B8D2DC; margin-left: -15px; }
+.footer-col-wrapper { font-size: 16.875px; color: #B8D2DC; margin-left: -15px; }
 
 .footer-col { float: left; margin-bottom: 15px; padding-left: 15px; }
 
@@ -107,30 +107,30 @@ table td { border: 1px solid white; }
 /** Page content */
 .page-content { padding: 30px 0; flex: 1; }
 
-.page-heading { font-size: 32px; }
+.page-heading { font-size: 36px; }
 
-.post-list-heading { font-size: 28px; }
+.post-list-heading { font-size: 31.5px; }
 
 .post-list { margin-left: 0; list-style: none; }
 .post-list > li { margin-bottom: 30px; }
 
-.post-meta { font-size: 14px; color: #B8D2DC; }
+.post-meta { font-size: 15.75px; color: #B8D2DC; }
 
-.post-link { display: block; font-size: 24px; }
+.post-link { display: block; font-size: 27px; }
 
 /** Posts */
 .post-header { margin-bottom: 30px; }
 
-.post-title { font-size: 42px; letter-spacing: -1px; line-height: 1; }
-@media screen and (max-width: 800px) { .post-title { font-size: 36px; } }
+.post-title { font-size: 47.25px; letter-spacing: -1px; line-height: 1; }
+@media screen and (max-width: 800px) { .post-title { font-size: 40.5px; } }
 
 .post-content { margin-bottom: 30px; }
-.post-content h2 { font-size: 32px; }
-@media screen and (max-width: 800px) { .post-content h2 { font-size: 28px; } }
-.post-content h3 { font-size: 26px; }
-@media screen and (max-width: 800px) { .post-content h3 { font-size: 22px; } }
-.post-content h4 { font-size: 20px; }
-@media screen and (max-width: 800px) { .post-content h4 { font-size: 18px; } }
+.post-content h2 { font-size: 36px; }
+@media screen and (max-width: 800px) { .post-content h2 { font-size: 31.5px; } }
+.post-content h3 { font-size: 29.25px; }
+@media screen and (max-width: 800px) { .post-content h3 { font-size: 24.75px; } }
+.post-content h4 { font-size: 22.5px; }
+@media screen and (max-width: 800px) { .post-content h4 { font-size: 20.25px; } }
 
 /** Syntax highlighting styles */
 .highlight { background: #fff; }
@@ -197,47 +197,87 @@ table td { border: 1px solid white; }
 
 .site-header { border-top: 5px solid #56CFFF; }
 
-h1, h2, h3 { color: #B8D2DC; /* Deep green for headings */ font-weight: bold; /* Makes them stand out */ }
+h1, h2, h3 { color: #B8D2DC; font-weight: bold; }
 
-h1 { border-bottom: 2px solid #B8D2DC; /* Adds a green line under main titles */ padding-bottom: 10px; }
+h1 { border-bottom: 5px solid #B8D2DC; padding-bottom: 10px; }
 
-.site-title { font-family: "Georgia", serif; /* Example: changing the title font */ font-weight: 900; }
+h2 { padding-left: 15px; }
 
-/* Container for the grid */
-.card-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; margin-top: 20px; }
+.site-title { font-family: "Georgia", serif; font-weight: 900; }
 
-/* The actual Card */
-.custom-card { background: #55877A; border: 1px solid #B8D2DC; border-radius: 12px; text-decoration: none !important; /* Removes underline from links */ color: #B8D2DC !important; transition: all 0.3s ease; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); position: relative; }
+.portfolio-dashboard { display: grid; grid-template-columns: 2fr 1fr; /* Project section is 2/3, Sidebar is 1/3 */ gap: 80px; align-items: start; margin-top: 30px; }
 
-.card-corner-icon { position: absolute; bottom: 15px; /* Distance from the top edge */ right: 15px; /* Distance from the right edge */ font-size: 1.5em; color: #315664; transition: all 0.3s ease; }
+/* Left Column: 2x2 Project Grid */
+.project-grid-2x2 { display: grid; grid-template-columns: 1fr 1fr; /* Two cards per row */ gap: 20px; }
 
-/* Hover Effect */
-.custom-card:hover { transform: translateY(-5px); background: #6ca395; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); }
+/* Right Column: Stacked Sidebar Logic */
+.sidebar { display: flex; flex-direction: column; gap: 35px; }
+
+.sidebar-section { display: flex; flex-direction: column; gap: 10px; }
+
+.custom-card { background: #33667a; border-radius: 12px; text-decoration: none !important; color: #B8D2DC !important; transition: all 0.3s ease; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); position: relative; height: 100%; }
+
+.card-image { width: 100%; height: 120px; /* Adjust height as needed */ overflow: hidden; border-bottom: 1px solid rgba(184, 210, 220, 0.2); }
+
+.card-image img { width: 100%; height: 100%; object-fit: cover; /* This crops the image to fill the area without distortion */ transition: transform 0.5s ease; }
+
+.card-corner-icon { position: absolute; bottom: 15px; right: 15px; font-size: 1.5em; color: #B8D2DC; transition: all 0.3s ease; }
+
+.custom-card:hover { transform: translateY(-5px); background: #42849e; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); }
 
 .card-content { padding: 20px; }
 
 .card-content h3 { margin-top: 0; font-family: "Georgia", serif; color: #B8D2DC; font-weight: 900; }
 
+/* Disable the lift and color change for static cards */
+.custom-card.static-card:hover { transform: none; background: #33667a; /* Keeps the original background */ box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Keeps the original shadow */ cursor: default; /* Changes pointer back to normal arrow */ }
+
 .read-more { font-weight: bold; font-size: 0.9em; color: #56CFFF; margin-top: 10px; display: block; }
 
-.card-grid { display: grid; /* Creates two columns of equal width */ grid-template-columns: 1fr 1fr; gap: 20px; /* Space between the cards */ max-width: 800px; margin: 40px auto; /* Centers the whole grid on the page */ }
+.column-title { font-size: 1.4rem; border-bottom: 2px solid #B8D2DC; padding-bottom: 10px; margin-bottom: 20px; }
 
-/* Responsive: Stack them on top of each other on mobile phones */
-@media (max-width: 600px) { .card-grid { grid-template-columns: 1fr; }
-  .card-grid .custom-card:last-child:nth-child(odd) { grid-column: auto; } }
-figure.highlight, pre, code { background-color: #002b36 !important; color: #839496; /* Base text color */ border-radius: 8px; }
+.resume-preview-list { font-size: 1rem; padding-left: 15px; margin: 10px 0 0 0; line-height: 1.6; }
+
+.small-card { font-size: 0.9em; }
+
+.full-width-breakout { width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; padding: 40px 0; }
+
+.breakout-inner { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+.image-text-container { display: flex; align-items: center; gap: 40px; margin: 40px auto; max-width: 1200px; justify-content: center; }
+
+.side-image img { max-width: 300px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); }
+
+.wide-layout .wrapper { max-width: 80% !important; }
+
+.site-footer { color: #557987; border-top: 1px solid #B8D2DC; }
+
+.footer-heading { color: #56CFFF; }
+
+figure.highlight, pre, code { background-color: #002b36 !important; color: #839496; border-radius: 8px; }
 
 code { background-color: #073642; padding: 2px 5px; }
 
-/* Change the color of the footer description and text */
-.site-footer { color: #557987; /* Your deep green text color */ border-top: 1px solid #B8D2DC; }
+@media (max-width: 1000px) { .portfolio-dashboard { grid-template-columns: 1fr; /* Stacks main and sidebar on smaller screens */ } }
+@media (max-width: 768px) { .image-text-container { flex-direction: column; text-align: center; margin: 20px auto; }
+  .project-grid-2x2 { grid-template-columns: 1fr; /* Stacks cards in the grid */ }
+  .side-image img { margin: 0 auto; display: block; } }
+/* --- Stacked Layout for the Projects Page --- */
+/* The container that holds the stack */
+.project-stack { display: flex; flex-direction: column; /* Stacks them vertically */ gap: 30px; /* This creates the space between the cards */ align-items: center; /* This centers the cards horizontally */ margin: 40px auto; }
 
-/* If you have a heading in the footer (like your site title) */
-.footer-heading { color: #56CFFF; /* Your brand green */ }
+/* The individual cards in the stack */
+.project-card { width: 100%; /* Makes it responsive */ max-width: 500px; /* Constrains the width so it's not too wide */ margin: 0 auto; /* Final insurance for centering */ }
 
-.image-text-container { display: flex; align-items: center; /* Vertically centers text next to image */ gap: 40px; /* Space between image and text */ margin: 40px 0; }
+/* Contact List Styling */
+.contact-list { list-style: none; padding: 0; margin: 0; }
 
-.side-image img { max-width: 300px; /* Adjust size as needed */ border-radius: 12px; /* Optional: rounds the corners */ box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); }
+.contact-list li { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; font-size: 0.95rem; color: #B8D2DC; }
 
-/* Mobile Responsive: Stack them on top of each other on small screens */
-@media (max-width: 768px) { .image-text-container { flex-direction: column; text-align: center; } }
+.contact-list li:last-child { margin-bottom: 0; }
+
+.contact-list i { color: #56CFFF; /* Uses your bright blue/cyan for the icons */ width: 20px; /* Keeps icons aligned vertically */ text-align: center; }
+
+.contact-list a { color: #56CFFF; text-decoration: none; transition: opacity 0.2s ease; }
+
+.contact-list a:hover { opacity: 0.8; text-decoration: underline; }

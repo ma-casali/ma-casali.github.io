@@ -4,6 +4,7 @@ title: "Training an AI to play the Palace Card Game"
 description: "Training framework using PyTorch to train a neural net to play the card game 'Palace' against two other players."
 date: 2025-12-30
 categories: software
+title-image: "/assets/images/Palace-title.png"
 featured: true
 ---
 {% include mathjax.html %}

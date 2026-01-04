@@ -4,6 +4,7 @@ title: "Acoustic Metamaterial-Enhanced Transducer"
 description: "Design and validation of a novel acoustic metamaterial enabled transducer for heightened beamforming performance."
 date: 2023-08-01
 categories: hardware
+title-image: "/assets/images/WaterImpedanceTube.png"
 featured: true
 ---
 

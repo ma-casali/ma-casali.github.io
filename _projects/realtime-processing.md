@@ -4,6 +4,7 @@ title: "Real-time Video to Audio iOS app"
 description: "Algorithm that uses pixel values from frames of videos to continuously generate audio."
 date: 2025-12-01
 categories: software
+title-image: "/assets/images/VideoAuralizer-title.png"
 featured: true
 ---
 {% include mathjax.html %}

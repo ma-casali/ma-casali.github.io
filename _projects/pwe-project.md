@@ -5,6 +5,7 @@ description: "Computational model for acoustic radiation using an IFD class of s
 date: 2025-10-01
 categories: software
 featured: true
+title-image: "/assets/images/PWE-title.png"
 ---
 {% include mathjax.html %}
 
