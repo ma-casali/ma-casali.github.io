@@ -23,7 +23,8 @@ $headings-font-family: Georgia, serif;
 
 // 3. Custom CSS Styles
 .site-header {
-  border-top: 5px solid $brand-color;
+  border-top: none;
+  border-bottom: 1px solid #B8D2DC; /* Uses your grey-blue for a subtle anchor */
 }
 
 h1, h2, h3 {
@@ -202,12 +203,22 @@ h2 {
 
 // 8. Footer & Code Styling
 .site-footer {
-  color: #557987;
-  border-top: 1px solid #B8D2DC;
+  padding: 40px 0;
+  background-color: darken($background-color, 5%); /* Slightly darker than the body */
+  
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap; /* Ensures it stacks on mobile */
+    gap: 30px;
+  }
 }
 
-.footer-heading {
-  color: $link-color;
+/* Force footer columns to stay organized */
+.footer-col-wrapper {
+  display: flex;
+  justify-content: space-between;
 }
 
 figure.highlight, pre, code {

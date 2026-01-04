@@ -195,7 +195,7 @@ table td { border: 1px solid white; }
 .highlight .vi { color: #008080; }
 .highlight .il { color: #099; }
 
-.site-header { border-top: 5px solid #56CFFF; }
+.site-header { border-top: none; border-bottom: 1px solid #B8D2DC; /* Uses your grey-blue for a subtle anchor */ }
 
 h1, h2, h3 { color: #B8D2DC; font-weight: bold; }
 
@@ -250,9 +250,11 @@ h2 { padding-left: 15px; }
 
 .wide-layout .wrapper { max-width: 80% !important; }
 
-.site-footer { color: #557987; border-top: 1px solid #B8D2DC; }
+.site-footer { padding: 40px 0; background-color: #334951; /* Slightly darker than the body */ }
+.site-footer .wrapper { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; /* Ensures it stacks on mobile */ gap: 30px; }
 
-.footer-heading { color: #56CFFF; }
+/* Force footer columns to stay organized */
+.footer-col-wrapper { display: flex; justify-content: space-between; }
 
 figure.highlight, pre, code { background-color: #002b36 !important; color: #839496; border-radius: 8px; }
 

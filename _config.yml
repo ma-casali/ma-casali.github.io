@@ -1,7 +1,7 @@
 title: "Matthew Casali"
 email: casali.ma98@gmail.com
 phone: "+1 (650)-799-5462"
-description: I am an acoustic engineer that focuses on hardware development, real-time DSP, and machine learning among other random projects!
+description: I am an acoustic engineer that focuses on hardware development, real-time DSP, and machine learning among other projects!
 theme: minima # Or any theme you've chosen
 baseurl: ""
 url: "https://ma-casali.github.io"
@@ -23,5 +23,8 @@ kramdown:
   syntax-highlighter: rouge
 
 # Social links
-github_username: ma-casali
-linkedin_username: matthew-casali-761158133
+minima:
+  social_links:
+    - { platform: email, user_url: "mailto:yourname@email.com" }
+    - { platform: github, user_url: "https://github.com/yourusername" }
+    - { platform: linkedin, user_url: "https://linkedin.com/in/yourprofile" }
