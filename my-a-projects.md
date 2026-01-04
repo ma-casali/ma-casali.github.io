@@ -15,6 +15,13 @@ I am constantly trying to push the boundaries of my knowledge and delve into the
 
   {% for project in all_projects %}
     <a href="{{ project.url | relative_url }}" class="custom-card project-card">
+
+      {% if project.title-image %}
+        <div class="card-image">
+          <img src="{{ project.title-image | relative_url }}" alt="{{ project.title }}">
+        </div>
+      {% endif %}
+
       <i class="fas fa-arrow-right card-corner-icon"></i>
       <div class="card-content">
         <h3>{{ project.title }}</h3>
