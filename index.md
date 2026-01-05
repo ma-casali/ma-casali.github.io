@@ -6,7 +6,7 @@ title: Home
 
 <div class="image-text-container">
   <div class="side-image">
-    <img src="{{ '/assets/images/ProfilePicture.png' | relative_url }}" alt="Matthew Casali">
+    <img src="{{ '/assets/images/ProfilePicture.jpg' | relative_url }}" alt="Matthew Casali">
   </div>
   <div class="side-text">
     <h3> Welcome! </h3>
