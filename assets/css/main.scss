@@ -340,3 +340,29 @@ code {
   opacity: 0.8;
   text-decoration: underline;
 }
+
+// Table
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  border: 2px solid #0e3a43;
+}
+
+table th, 
+table td {
+  border: 2px solid #0e3a43 !important;
+  padding: 12px;
+}
+
+th {
+  background-color: $card-color;
+  color: darken($text-color, 10%);
+  text-align: center;
+}
+
+td {
+  background-color: lighten($card-color, 5%);
+  color: $text-color;
+}
