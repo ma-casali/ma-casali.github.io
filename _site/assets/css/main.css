@@ -288,3 +288,11 @@ code { background-color: #073642; padding: 2px 5px; }
 .contact-list a { color: #56CFFF; text-decoration: none; transition: opacity 0.2s ease; }
 
 .contact-list a:hover { opacity: 0.8; text-decoration: underline; }
+
+table { width: 100%; border-collapse: collapse; margin: 20px 0; border: 2px solid #0e3a43; }
+
+table th, table td { border: 2px solid #0e3a43 !important; padding: 12px; }
+
+th { background-color: #33667a; color: #96bccb; text-align: center; }
+
+td { background-color: #3b758c; color: #B8D2DC; }
