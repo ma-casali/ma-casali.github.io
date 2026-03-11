@@ -17,6 +17,9 @@ collections:
     output: true
     permalink: /other-pages/:path/
 
+include:
+  - play-palace/build
+
 markdown: kramdown
 kramdown:
   math_engine: mathjax
