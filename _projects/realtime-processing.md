@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Real-time Video to Audio iOS app"
-description: "Algorithm that uses pixel values from frames of videos to continuously generate audio."
+title: "Vaudio"
+description: "A video-to-audio engine that utilizes Metal kernels for feature extraction and DSP"
 date: 2025-12-01
 categories: software
 title-image: "/assets/images/VideoAuralizer-title.png"
@@ -14,28 +14,48 @@ featured: true
 What does light sound like? Is there a way for us to hear what a video "sounds" like? I thought I would give it a try while taking some artistic liberties along the way. The result is an iOS app that processes video and produces audio in real-time. Below, I will go into some detail about how this process works and some examples of what the output looks like.
 
 <div style="text-align: center;">
-    <img src="/assets/images/VideoAuralizerSample.jpg" alt = "Sample Screenshot from the App" width = "300">
+    <img src="/assets/images/VaudioHome.PNG" alt = "Sample Screenshot from the App" width = "300">
 </div>
 
-# The Fundamental Process
+# Fundamental Approach
 
-The primary goal that I set forth with was to map a frame of video and the colors associated with each pixel in that video to a frequency spectrum in the audible range that represented that frame. This mapping relies on a few key factors:
-1. **One frame maps to one chunk of audio.** This means that all pixel information must come together to form a single frequency spectrum. I achieved this by summing up the contributios from a downsampled set of pixels. 
-2. **Pixel channel information can be converted from RGB to HSI (Hue, Saturation, and Intensity).** By treating each pixel as a representation of a resonant system, I can map these channels to an *audible frequency* (from Hue), *resonant Q factor* (from Saturation), and *relative amplitude* (from Intensity).
-3. **Humans interpret audible frequencies on a log scale and visible frequencies on a linear scale.** This means that a doubling in frequency on the audible spectrum is equivalent to a step of fixed value on the visible spectrum. 
+My first attempt at creating this app focused on taking a frame of audio and mapping each pixel's hue, saturation, and intensity to frequency, resonance "Q" factor, and amplitude respectively, before summing the contributions of each pixel into a total spectrum. In attempting this however, I ran into a double-headed problem: 1) the processing power to create each spectrum from each pixel even on the GPU was immense; too much even for a 3-fold down-sampled frame, and 2) the resulting audio was a jumble of noise due to the noisiness of the video frame. The latter half of the problem was the one I focused on while I hoped that fixing it would address the latency issue. 
 
-By combining all of these factors I can generate a spectrum \\(F(f)\\) using the following equation:
+Instead of mapping each pixel, I decided to focus on regions of the frame. Now, each frame is split into a 4 x 4 grid that are used to detect the most prevalent hue in the cell as well as average or peak values of 4 different modes of intensity gradients within the cell. These intensity gradients are breathing, vertical tilt, horizontal tilt, and shear and are calculated about each individual pixel in the cell. You can see a depiction of each gradient matrix used below. 
 
-$$ F(f) = \sum_{i=0}^{N} W(f) * \frac{A_i}{1 + jQ_i(f - f_{0,i})}$$
+<div style="text-align: center;">
+    <img src="/assets/images/gradientkernels.png" alt = "Gradient Kernels" width = "300">
+</div>
 
-where \\(i\\) is the pixel index, \\(N\\) is the total number of pixels in the frame, \\(W(f)\\) is some arbitrary windowing function in frequency-space (I default to the Hanning function), and \\(\mathrm{Intensity} \rightarrow A\\), \\(\mathrm{Saturation} \rightarrow Q_i\\), and \\(\mathrm{Hue}\rightarrow f_{0,i}\\) via complex mapping functions.
+The mapping now focuses on each of the 16 cells and the values of hue and intensity gradients that each contain. Each impact the resulting sound for the cell's "instrument" in the following way: 
 
-# Implementation Method (real-time processing)
+1. The most promninent hue determines the note that the instrument is playing. Each hue is assigned to a linear scale from 1 to 360 where 1 is red and 360 is magenta. These are then mapped to frequencies according to \\(220 * 2^{\mathrm{hue}/360 * 3}\\) so that it covers three octaves from A3 to A6. These frequencies are called the *fundamental frequencies* and are the basis for the following harmonics. 
 
-I implemented this process by structuring the project as follows. The user will have access to a GUI that depicts the camera, resulting spectrum, and resulting time-domain signal. They will have access to factors that affect the signal such as low- and high-pass filters, attack/release values for volume scaling, resonance Q factor scaling, etc. Updates to these values happen on a **main thread**.
+2. The "breathing mode" gradient determined by the left-most gradient matrix controls how prevalent the harmonics are. It controls a harmonic roll-off factor that reduces the harmonics by a certain amount of dB per octave starting from the fundamental frequency. A lower breathing mode gradient is associated with a more pure image, therefore it will have less contribution from harmonics and behave more like a pure sine-wave. 
 
-Simultaneously two other threads are running: 1) the **processing thread** and 2) the **audio thread**. The processing thread takes in video data, and runs it through the process described above using metal shaders to access the iPhone's GPU. After turning video into audio, it pushes frames to an audio buffer. As this process is happening, the audio thread is emptying frames from this buffer to play to the user. 
+3. The "horizontal tilt" and "vertical tilt" gradients are determined by the two center gradient matrices. These determine the amount of even or odd harmonics respectively present in the resulting spectrum. Even and odd harmonics yield different types of timbre to the sound and while the application of vertical tilt to odd harmonics and horizontal tilt to even harmonics is arbitrary, it allows for effective discernment between the types of gradients through sound. 
 
-# Demonstration
+4. The shear mode gradients are determined by the right-most gradient matrix. This gradient determines how prevalent the first 13 bessel harmonics are in the spectrum. Bessel harmonics describe the harmonic vibrational modes of cylindrical waves, specifically applied here to a model of the harmonic modes of a circular membrane. Therefore, these harmonics remind us mostly of instruments like drums or cymbals. Because shear gradient values are higher for pictures that have more granular texture, a cymbal-like sound can provide an intuition for more complicated images. 
 
-Demonstration coming soon! In the meantime, check out [my work](https://github.com/ma-casali/video-auralizer) so far!
+# Implementation Method
+
+Vaudio's primary goal is to transduce video into audio. In order to do this, it takes the hue and gradient information described previously and uses those values to create spectra for each cell of a video frame. 
+
+The project is split into two main components: 1) the vision engine which handles the camera and computation of hues and gradient values, and 2) the sound engine which handles the audio device and computation of the spectrum and time signal. These are both controlled by the video-to-audio converter which handles shared variables, passing information between the two engines, and sharing information with UI. 
+
+## The Vision Engine
+
+The Vision Engine will open the camera, set up the metal device for dominant hue and gradient calculation, and send data to the metal kernel to perform the calculations. In order to do this in reasonable time, it takes advantage of mip map images using the 3rd order downsampling to balance retention of essential information with processing time requirements. 
+
+## The Sound Engine
+
+The Sound Engine starts the audio device, sets up the metal device for spectrum computation, sends data to the metal kernel to perform the calculations, and populates a buffer that the audio device draws from to play sounds. This circular buffer is populated with a complete latency time of approximately 50 ms with 10-15 ms of that time being attributable to the software. 
+
+## The UI 
+
+Each frame of time signal and spectrum is shared with the UI and a feed from the camera is shown. This provides the user with real-time feedback about how different video feeds create different sounds using the video-to-audio translator. The time signal and spectrum can be hidden or shown so that the user can focus on just the camera alone, or how the audio responds to different inputs. 
+
+<div style="text-align: center;">
+    <img src="/assets/images/VaudioCamera_covered.PNG" alt = "Covered Screenshot of the Camera UI" width = "300">
+    <img src="/assets/images/VaudioCamera_uncovered.PNG" alt = "Uncovered Screenshot of the Camera UI" width = "300">
+</div>
