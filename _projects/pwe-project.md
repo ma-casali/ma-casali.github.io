@@ -4,7 +4,7 @@ title: "Parabolic Wave Equation Solver"
 description: "Computational model for acoustic radiation using an IFD class of solution to the parabolic wave equation. "
 date: 2025-10-01
 categories: software
-featured: true
+featured: false
 title-image: "/assets/images/PWE-title.png"
 ---
 {% include mathjax.html %}
