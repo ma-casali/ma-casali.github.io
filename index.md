@@ -85,7 +85,7 @@ title: Home
                 </li>
                 <li>
                   <i class="fab fa-linkedin"></i>
-                  <a href="www.linkedin.com/in/matthew-casali-761158133" target="_blank">Matthew Casali</a>
+                  <a href="www.linkedin.com/in/matthewcasali" target="_blank">Matthew Casali</a>
                 </li>
                 <li>
                   <i class="fas fa-phone"></i>
